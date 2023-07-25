@@ -33,7 +33,7 @@ const Nav = () => {
               className="navInput hidden md:block px-2 border-2 w-full h-10 md:w-[500px] border-gray-500 focus:outline-none text-gray-600 text-sm"
             />
           </div>
-          <button type="submite" className="hidden md:block  SearchIcon p-2">
+          <button type="" className="hidden md:block  SearchIcon p-2">
             <AiOutlineSearch size={25} className="hidden md:block top-1 right-0 text-white" />
           </button>
           </div>

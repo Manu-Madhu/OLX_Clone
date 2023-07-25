@@ -1,10 +1,16 @@
 import React,{useEffect,useContext, useState} from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { FirebaseContext } from "../Store/FirebaseContext";
+import { PostContext } from "../Store/PostContext";
+import { useNavigate } from "react-router-dom";
+
 
 const Home = () => {
   const {firebase}=useContext(FirebaseContext);
   const [products,setProducts] = useState([]);
+  const {setPostDetails} = useContext(PostContext);
+
+  const navigate = useNavigate()
   useEffect(()=>{
       firebase.firestore().collection('products').get().then((snapshot)=>{
           const allpost = snapshot.docs.map((product)=>{
@@ -25,7 +31,10 @@ const Home = () => {
         {
           products.map((products)=>{
             return(
-               <div className="relative border border-gray-300 w-64 h-60 p-2 rounded cursor-pointer" key={products.id}>
+               <div onClick={()=>{
+                setPostDetails(products)
+                navigate('/view')
+               }} className="relative border border-gray-300 w-64 h-60 p-2 rounded cursor-pointer" key={products.id}>
                 <AiOutlineHeart className="absolute top-3 right-4 cursor-pointer bg-white rounded-2xl p-1" size={30}/>
                   <img src={products.url} alt="cardimage" className="object-cover w-full h-32"/>
                   <div className="relative flex flex-col pt-1">
@@ -34,7 +43,7 @@ const Home = () => {
                     <span className="text-gray-400 text-sm text-ellipsis">
                       {products.category}
                     </span>
-                    <span className="pt-1 text-gray-400 font-thin text-[10px] text-ellipsis">THIRUVANDAPURAM, KERALA</span>
+                    <span className="pt-1 text-gray-400 font-thin text-[10px] text-ellipsis">{products.location}</span>
                     <div className="absolute text-gray-400 font-thin text-[10px] right-0 bottom-0">
                       {products.createdAt}
                     </div>

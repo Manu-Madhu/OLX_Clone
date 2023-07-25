@@ -6,7 +6,9 @@ import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import Create from './Pages/Create';
 import Footer from './Components/Footer';
+import View from './Pages/View';
 import {AuthContext, FirebaseContext } from './Store/FirebaseContext'
+import Post from './Store/PostContext';
 import './App.css';
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
   })
   return (
     <>
+    <Post>
     <Router>
       <Nav/>
       <Routes>
@@ -26,9 +29,11 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/signUp' element={<SignUp/>}/>
         <Route path='/create' element={<Create/>}/>
+        <Route path='/view' element={<View/>}/>
       </Routes>
       <Footer />
       </Router>
+    </Post>
     </>
   );
 }
