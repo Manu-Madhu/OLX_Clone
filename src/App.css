@@ -1,29 +1,33 @@
-.App {
-  text-align: center;
+.navInput {
+  border-radius: 4px 0px 0px 4px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.SearchIcon {
+  border-radius: 0px 4px 4px 0px;
+  background-color: #002f34;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.SellButton {
+  margin-left: 20px;
+  border-radius: 30px;
+  background-color: #fff;
+  border-bottom: 6px solid #3a77ff;
+  border-right: 6px solid #3a77ff;
+  border-left: 6px solid #ffe32f;
+  border-top: 6px solid #23e5db;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Footer {
+  background-color: #002f34;
 }
 
-.App-link {
-  color: #61dafb;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
